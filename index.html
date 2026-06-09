@@ -457,6 +457,111 @@
 
     /* divider between sections */
     .divider-line { border: none; border-top: 1px solid var(--black-4); }
+
+    /* ══════════════════════════════════
+       RESPONSIVE — MOBILE FIRST FIXES
+    ══════════════════════════════════ */
+
+    /* Nav mobile */
+    @media(max-width:680px){
+      nav { padding: 14px 18px; }
+      .nav-wordmark { font-size: 16px; }
+      .nav-logo img { height: 26px !important; }
+      .nav-links { display: none !important; }
+    }
+
+    /* Hero mobile */
+    @media(max-width:680px){
+      .hero { padding: 90px 16px 48px; }
+      .eyebrow { font-size: 9px; padding: 5px 12px; }
+      .hero h1 { font-size: clamp(34px, 10vw, 56px); }
+      .hero-sub { font-size: 14px; }
+      .hero-card { padding: 18px 16px; border-radius: 14px; }
+      .hero-card-wrap { margin-bottom: 32px; }
+      .hc-num { font-size: 13px; letter-spacing: 0.14em; }
+      .hstat { padding: 12px 14px; }
+      .hstat-num { font-size: 22px; }
+      .hstat-label { font-size: 9px; }
+      .hero-stats { gap: 8px; }
+    }
+
+    /* Sections mobile */
+    @media(max-width:680px){
+      .section { padding: 52px 16px; }
+      .section-h { font-size: clamp(24px, 7vw, 38px); }
+      .section-sub { font-size: 14px; margin-bottom: 32px; }
+    }
+
+    /* Tier grid mobile */
+    @media(max-width:680px){
+      .tier-grid { grid-template-columns: 1fr !important; }
+      .tier-card { padding: 20px 18px; }
+    }
+
+    /* FF grid mobile */
+    @media(max-width:680px){
+      .ff-grid { grid-template-columns: 1fr !important; }
+      .ff-card { padding: 16px 14px; }
+    }
+
+    /* Calculator mobile */
+    @media(max-width:680px){
+      .calc-header { padding: 20px 18px; flex-direction: column; align-items: flex-start; gap: 12px; }
+      .calc-title { font-size: 16px; }
+      .calc-left { padding: 20px 16px; }
+      .calc-right { padding: 20px 16px; }
+      .tdc-box { width: 100%; justify-content: space-between; }
+      .tdc-input { font-size: 16px; }
+    }
+
+    /* Tier opts en calculadora mobile */
+    @media(max-width:680px){
+      .tier-options { grid-template-columns: repeat(2,1fr) !important; }
+    }
+
+    /* FF opts en calculadora (3 cols → 1 col) mobile */
+    @media(max-width:680px){
+      #ff-calc-grid { grid-template-columns: 1fr !important; }
+    }
+    @media(max-width:480px){
+      div[style*="repeat(3,1fr)"] { grid-template-columns: 1fr !important; }
+    }
+
+    /* Resultado rows mobile */
+    @media(max-width:680px){
+      .result-row { flex-wrap: wrap; gap: 4px; }
+      .result-row-top { flex-wrap: wrap; }
+      .result-mxn { font-size: 16px; }
+      .result-usd { font-size: 10px; }
+      .neto-label { font-size: 13px; }
+      .neto-mxn { font-size: 22px; }
+    }
+
+    /* Benefits table mobile */
+    @media(max-width:600px){
+      .bt-row { grid-template-columns: 1fr 1fr !important; }
+      .bt-header { display: none; }
+    }
+
+    /* CTA / footer mobile */
+    @media(max-width:680px){
+      .exec-cards { flex-direction: column; align-items: center; }
+      footer { padding: 24px 16px; font-size: 11px; }
+      footer > div { gap: 8px; }
+    }
+
+    /* Input fields mobile — prevent zoom on iOS */
+    @media(max-width:680px){
+      .calc-input, .tdc-input { font-size: 16px !important; }
+      input[type="number"], input[type="range"] { font-size: 16px; }
+    }
+
+    /* Prevent horizontal overflow globally */
+    @media(max-width:680px){
+      .section-inner { overflow-x: hidden; }
+      table, .bt-table { width: 100%; overflow-x: auto; display: block; }
+    }
+
   </style>
 </head>
 <body>
@@ -483,7 +588,7 @@
     </a>
   </div>
   <div style="display:flex;align-items:center;gap:20px;">
-    <div style="display:flex;gap:20px;">
+    <div class="nav-links" style="display:flex;gap:20px;">
       <a href="#sec-hero" style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--text-muted)'">Tarjetas</a>
       <a href="#sec-pay" style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='var(--pacific)'" onmouseout="this.style.color='var(--text-muted)'">Pay</a>
       <a href="#sec-instant" style="font-size:11px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-muted);text-decoration:none;" onmouseover="this.style.color='var(--amber)'" onmouseout="this.style.color='var(--text-muted)'">Instant</a>
@@ -1110,7 +1215,7 @@
           <!-- FotoFacturas toggle -->
           <div class="input-group">
             <label class="input-label">Add-on FotoFacturas</label>
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:4px;">
+            <div id="ff-calc-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:4px;">
               <div class="tier-opt" id="ff_1000" onclick="setFF(1000)">
                 <div class="tier-opt-label">1,000 FF</div>
                 <div class="tier-opt-price">$10,000</div>
